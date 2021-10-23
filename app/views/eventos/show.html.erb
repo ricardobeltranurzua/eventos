@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @evento.nombre %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @evento.fecha %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @evento.descripcion %>
+</p>
+
+<p>
+<strong>Numero de Participantes</strong>
+<%= @evento.participante.count %>
+</p>
+
+<ul>
+<% @evento.participante.each do |t| %>
+
+<li>
+  <%= t.nombre %> 
+  <%= t.app_paterno %> 
+  <%= t.app_materno %> 
+  <%= t.email %>
+</li>
+<% end %>
+</ul>
+
+<%= link_to 'Edit', edit_evento_path(@evento) %> |
+<%= link_to 'Back', eventos_path %>

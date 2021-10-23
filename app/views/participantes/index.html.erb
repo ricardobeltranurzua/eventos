@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Participantes</h1>
+
+<table border 1>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido paterno</th>
+      <th>Apellido materno</th>
+      <th>Email</th>
+      <th>Evento</th>
+      <th colspan="3">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @participantes.each do |participante| %>
+      <tr>
+        <td><%= participante.nombre %></td>
+        <td><%= participante.app_paterno %></td>
+        <td><%= participante.app_materno %></td>
+        <td><%= participante.email %></td>
+        <td><%= participante.evento.nombre %></td>
+        <td><%= link_to 'Mostrar', participante %></td>
+        <td><%= link_to 'Editar', edit_participante_path(participante) %></td>
+        <td><%= link_to 'Eliminar', participante, method: :delete, data: { confirm: 'Esta seguro de eliminar patricipante?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Participante', new_participante_path %>
